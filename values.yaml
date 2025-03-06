@@ -25,9 +25,14 @@ resources: {}
 #   cpu: 10m
 #   memory: 100Mi
 
-nodeSelector: {}
+nodeSelector:
+  pool: system
 
-tolerations: []
+tolerations:
+  - key: dedicated
+    operator: Equal
+    value: system
+    effect: NoSchedule
 
 affinity: {}
 
@@ -58,10 +63,7 @@ namespace:
 
 ## Downscale resources of this kind. (default: deployments)
 includeResources:
-# - deployments
-# - statefulsets
-# - cronjobs
-# - horizontalpodautoscalers
+ - deployments
 
 ## Grace period in seconds for new deployments before scaling them down
 ## (default: 15min). The grace period counts from time of creation of the
