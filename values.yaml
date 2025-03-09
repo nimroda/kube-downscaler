@@ -43,7 +43,7 @@ rbac:
 dryRun: false
 
 ## Debug mode: print more information
-debug: false
+debug: true
 
 ## Run loop only once and exit
 once: false
@@ -59,7 +59,8 @@ namespace:
   activeIn:
   ## Exclude namespaces from downscaling (default: kube-system)
   inactiveIn:
-  # - kube-system
+    - kube-system
+    - castai-agent
 
 ## Downscale resources of this kind. (default: deployments)
 includeResources:
